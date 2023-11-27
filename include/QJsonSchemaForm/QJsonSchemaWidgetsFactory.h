@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <QObject>
 
@@ -19,9 +19,9 @@ class QJsonSchemaWidgetsFactory : public QObject
 
     static void setValue(QJsonSchemaWidget *widget, const QJsonValue &value);
 
-    [[nodiscard]] static QJsonObject getDef(const QJsonObject &schema, const QString &ref);
+    /* [[nodiscard]] */ static QJsonObject getDef(const QJsonObject &schema, const QString &ref);
 
-    [[nodiscard]] static QJsonObject dereference(const QJsonObject &schema, QWidget *widget);
+    /* [[nodiscard]] */ static QJsonObject dereference(const QJsonObject &schema, QWidget *widget);
 };
 
 }  // namespace QJsonSchemaForm

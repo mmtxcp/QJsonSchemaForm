@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-
+#include <QDebug>
 #include <QJsonSchemaForm/QJsonSchemaForm.h>
 
 #include <QBoxLayout>

@@ -1,4 +1,4 @@
-// https://stackoverflow.com/a/62247360
+﻿// https://stackoverflow.com/a/62247360
 
 #pragma once
 
@@ -18,7 +18,7 @@ class ToggleSwitch : public QAbstractButton
     explicit ToggleSwitch(int trackRadius, int thumbRadius, QWidget *parent = nullptr);
     ~ToggleSwitch() override;
 
-    [[nodiscard]] QSize sizeHint() const override;
+    /*[[nodiscard]]*/ QSize sizeHint() const override;
 
   public Q_SLOTS:
     void setChecked(bool checked);
@@ -28,7 +28,7 @@ class ToggleSwitch : public QAbstractButton
     void resizeEvent(QResizeEvent * /*event*/) override;
     void mouseReleaseEvent(QMouseEvent * /*event*/) override;
 
-    [[nodiscard]] int offset() const;
+    /*[[nodiscard]]*/ int offset() const;
     void setOffset(int value);
 
   private:

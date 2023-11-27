@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <QJsonObject>
 
@@ -26,7 +26,7 @@ class QJsonSchemaForm : public QJsonSchemaWidget
 
     /// @brief 获取表单内容 json格式
     /// @return QJsonValue
-    [[nodiscard]] QJsonValue getValue() const override;
+    /* [[nodiscard]] */ QJsonValue getValue() const override;
     /// @brief 将json值解析到表单
     /// @param[in] data
     void setValue(const QJsonObject &json) override;

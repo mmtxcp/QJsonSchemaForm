@@ -1,4 +1,5 @@
-#include "QJsonSchemaWidgetsFactory.h"
+﻿#include "QJsonSchemaWidgetsFactory.h"
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace QJsonSchemaForm {

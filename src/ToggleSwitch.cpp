@@ -1,6 +1,4 @@
-#include "ToggleSwitch.h"
-
-#include <qtconfigmacros.h>
+﻿#include "ToggleSwitch.h"
 
 #include <QPainterPath>
 #include <QtCore/QCoreApplication>

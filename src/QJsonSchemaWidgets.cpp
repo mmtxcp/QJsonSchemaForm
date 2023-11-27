@@ -1,4 +1,4 @@
-#include "QJsonSchemaWidgets.h"
+﻿#include "QJsonSchemaWidgets.h"
 
 #include <qcheckbox.h>
 #include <qcolordialog.h>
@@ -26,6 +26,7 @@
 
 #include "QJsonSchemaWidgetsFactory.h"
 #include "ToggleSwitch.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace QJsonSchemaForm {
@@ -212,7 +213,7 @@ void QJsonSchemaObject::setValue(const QJsonObject &json)
     }
 }
 
-[[nodiscard]] QFormLayout *QJsonSchemaObject::formLayout() const
+/* [[nodiscard]] */ QFormLayout *QJsonSchemaObject::formLayout() const
 {
     return qobject_cast<QFormLayout *>(layout());
 }
@@ -349,15 +350,15 @@ void QJsonSchemaArray::rebuild()
     auto *layout = propertiesLayout;
 
     while (layout->rowCount()) {
-        auto h = layout->takeRow(layout->rowCount() - 1);
+        auto h = layout->takeAt(layout->rowCount() - 1);
         bool found = false;
         for (auto &x : items) {
-            if (h.fieldItem == x.layout) {
+            if (h->layout() == x.layout) {
                 found = true;
             }
         }
         if (!found) {
-            delete h.fieldItem;
+            delete h->layout();
         }
     }
 
@@ -526,7 +527,7 @@ void QJsonSchemaString::processSchema(const QJsonObject &schema)
         auto *textEdit = new QTextEdit(this);
 
         QFontMetrics metrics(textEdit->font());
-        textEdit->setTabStopDistance(4 * metrics.averageCharWidth());
+        textEdit->setTabStopWidth(4 * metrics.averageCharWidth());
 
         connect(textEdit, &QTextEdit::textChanged, [this]() { Q_EMIT changed(); });
         _widget = textEdit;
@@ -588,7 +589,7 @@ void QJsonSchemaString::processSchema(const QJsonObject &schema)
             int r, g, b, a;
             c.getRgb(&r, &g, &b, &a);
             char txt[25];
-            int cx = std::snprintf(txt, 25, "#%02x%02x%02x%02x", r, g, b, a);
+            int cx = sprintf(txt, "#%02x%02x%02x%02x", r, g, b, a);
             lineEdit->setText(txt);
         });
         layout()->addWidget(colorButton);
